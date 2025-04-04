@@ -1,72 +1,82 @@
 <!doctype html>
 <html lang="en"> 
- <head> 
+<head> 
   <meta charset="UTF-8"> 
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <title>Pattern Lock</title> 
   <link rel="stylesheet" href="style3.css"> 
- </head> 
- <body> 
+</head> 
+<body> 
   <h1>∆ᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ</h1> 
   <div id="pattern-lock-container"> 
-   <h2>Uɴʟᴏᴄᴋ ꜱᴛᴀʀꜱ~ </h2> 
-   <div id="pattern-lock"> 
-    <div class="dot" data-num="1"></div> 
-    <div class="dot" data-num="2"></div> 
-    <div class="dot" data-num="3"></div> 
-    <div class="dot" data-num="4"></div> 
-    <div class="dot" data-num="5"></div> 
-    <div class="dot" data-num="6"></div> 
-    <div class="dot" data-num="7"></div> 
-    <div class="dot" data-num="8"></div> 
-    <div class="dot" data-num="9"></div> 
-   </div> 
-   <p id="status"></p> <button class="reset" onclick="resetPattern()">Reset</button> <button class="ok" onclick="checkPattern()">OK</button> 
+    <h2>Uɴʟᴏᴄᴋ ꜱᴛᴀʀꜱ~ </h2> 
+    <div id="pattern-lock"> 
+      <div class="dot" data-num="1"></div> 
+      <div class="dot" data-num="2"></div> 
+      <div class="dot" data-num="3"></div> 
+      <div class="dot" data-num="4"></div> 
+      <div class="dot" data-num="5"></div> 
+      <div class="dot" data-num="6"></div> 
+      <div class="dot" data-num="7"></div> 
+      <div class="dot" data-num="8"></div> 
+      <div class="dot" data-num="9"></div> 
+    </div> 
+    <p id="status"></p> 
+    <button class="reset" onclick="resetPattern()">Reset</button> 
+    <button class="ok" id="okButton" onclick="checkPattern()" disabled>OK</button> 
   </div> 
+
   <script>
     const correctPattern = "25";
     let enteredPattern = "";
     let attempts = 0;
     const maxAttempts = 3;
-    
+
+    const okButton = document.getElementById("okButton");
+
     document.querySelectorAll(".dot").forEach(dot => {
-        dot.addEventListener("click", function() {
-            this.classList.add("selected");
-            enteredPattern += this.getAttribute("data-num");
-            if (enteredPattern === correctPattern) {
-                checkPattern();
-            }
-        });
+      dot.addEventListener("click", function() {
+        if (!this.classList.contains("selected")) {
+          this.classList.add("selected");
+          enteredPattern += this.getAttribute("data-num");
+          okButton.disabled = false; // Enable OK button when at least one dot is touched
+        }
+
+        if (enteredPattern === correctPattern) {
+          checkPattern();
+        }
+      });
     });
 
     function checkPattern() {
-        if (enteredPattern === correctPattern) {
-            window.location.href = "index4.html";
+      if (enteredPattern === correctPattern) {
+        window.location.href = "index4.html";
+      } else {
+        attempts++;
+        document.getElementById("status").innerText = `ᴡʀᴏɴɢ ᴘᴀꜱꜱᴡᴏʀᴅ. ᴀᴛᴛᴇᴍᴘᴛ ${attempts} ᴏᴜᴛ ᴏꜰ ${maxAttempts}`;
+        if (attempts >= maxAttempts) {
+          hangSystem();
         } else {
-            attempts++;
-            document.getElementById("status").innerText = ᴡʀᴏɴɢ ᴘᴀꜱꜱᴡᴏʀᴅ. ᴀᴛᴛᴇᴍᴘᴛ ${attempts} ᴏᴜᴛ ᴏꜰ ${maxAttempts}`;
-            if (attempts >= maxAttempts) {
-                hangSystem();
-            } else {
-                resetPattern();
-            }
+          resetPattern();
         }
+      }
     }
 
     function resetPattern() {
-        enteredPattern = "";
-        document.querySelectorAll(".dot").forEach(dot => dot.classList.remove("selected"));
+      enteredPattern = "";
+      okButton.disabled = true; // Disable OK button again
+      document.querySelectorAll(".dot").forEach(dot => dot.classList.remove("selected"));
     }
-    
+
     function hangSystem() {
-        for (let i = 0; i < 100; i++) {
-            setTimeout(() => {
-                while (true) {
-                    console.log("Hanging function " + i);
-                }
-            }, 0);
-        }
+      for (let i = 0; i < 100; i++) {
+        setTimeout(() => {
+          while (true) {
+            console.log("Hanging function " + i);
+          }
+        }, 0);
+      }
     }
   </script> 
- </body>
+</body>
 </html>
