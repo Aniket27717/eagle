@@ -80,7 +80,7 @@ h2 {
     margin-top: 10px;
     transition: background 0.3s;
     position: absolute;
-    top: 75.5%;
+    top: 76%;
     left: 20%;
     border: 1px solid black;
     border-radius: 5px;
@@ -100,7 +100,7 @@ h2 {
     margin-top: 10px;
     transition: background 0.3s;
     position: absolute;
-    top: 75.5%;
+    top: 76%;
     right: 20%;
     border-radius: 5px;
     border: 1px solid black;
