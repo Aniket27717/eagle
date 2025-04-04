@@ -72,21 +72,41 @@ h2 {
     
     
 }
-button {
+.reset {
     background: black;
     color: red;
     padding: 10px 15px;
     cursor: pointer;
     margin-top: 10px;
     transition: background 0.3s;
-    position: relative;
-    bottom: 35%;
+    position: absolute;
+    top: 70%;
+    left: 20%;
     border: 2px solid white;
     border-radius: 5px;
     
 }
 
-button:hover {
+.reset:hover {
     background: #a64dff;
     color: black;
-  }
+}
+
+.ok{
+    background: black;
+    color: red;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+    position: absolute;
+    top: 70%;
+    right: 20%;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+.ok:hover {
+    background: #a64dff;
+    color: black;
+}
