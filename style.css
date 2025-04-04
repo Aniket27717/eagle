@@ -1,0 +1,92 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background: white; /*linear-gradient(135deg, #1e1e2e, #3a3d56);*/
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    margin: 0;
+}
+
+h1{
+  color: black;
+  position: absolute;
+  top: 2%;
+  left: 3%;
+}
+h2 {
+    color: black;
+    position: relative;
+    bottom: 5%;
+    
+}
+
+#pattern-lock-container {
+    
+    height: 350px;
+    width: ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;/*rgba(40, 42, 54, 0.9);*/
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+#pattern-lock {
+    display: grid;
+    grid-template-columns: repeat(3, 60px);
+    grid-gap: 20px; /* Increased gap between dots */
+    justify-content: center;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.dot {
+    width: 70px;
+    height: 70px;
+    background-color: #8c8c8c;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    right: 5px;
+    bottom: 60px;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 
+                      79% 91%, 50% 70%, 21% 91%, 32% 57%, 
+                      2% 35%, 39% 35%);
+    border-radius: 10px; /* Softens the edges */
+}
+
+.dot.selected {
+    background-color: #a64dff;
+    transform: scale(1.1);
+    
+    
+}
+button {
+    background: black;
+    color: red;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+    position: relative;
+    bottom: 35%;
+    border: 2px solid white;
+    border-radius: 5px;
+    
+}
+
+button:hover {
+    background: #a64dff;
+    color: black;
+  }
