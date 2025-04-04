@@ -80,9 +80,9 @@ h2 {
     margin-top: 10px;
     transition: background 0.3s;
     position: absolute;
-    top: 70%;
+    top: 75.5%;
     left: 20%;
-    border: 2px solid white;
+    border: 1px solid black;
     border-radius: 5px;
     
 }
@@ -100,10 +100,10 @@ h2 {
     margin-top: 10px;
     transition: background 0.3s;
     position: absolute;
-    top: 70%;
+    top: 75.5%;
     right: 20%;
-    border: 2px solid white;
     border-radius: 5px;
+    border: 1px solid black;
 }
 
 .ok:hover {
