@@ -21,19 +21,19 @@
     <div class="dot" data-num="8"></div> 
     <div class="dot" data-num="9"></div> 
    </div> 
-   <p id="status"></p> 
-   <button onclick="resetPattern()">Reset</button> 
+   <p id="status"></p> <button class="reset" onclick="resetPattern()">Reset</button> <button class="ok" onclick="checkPattern()">OK</button> 
   </div> 
-
   <script>
     const correctPattern = "25";
     let enteredPattern = "";
-
+    let attempts = 0;
+    const maxAttempts = 3;
+    
     document.querySelectorAll(".dot").forEach(dot => {
         dot.addEventListener("click", function() {
-            if (!this.classList.contains("selected")) {
-                this.classList.add("selected");
-                enteredPattern += this.getAttribute("data-num");
+            this.classList.add("selected");
+            enteredPattern += this.getAttribute("data-num");
+            if (enteredPattern === correctPattern) {
                 checkPattern();
             }
         });
@@ -41,14 +41,31 @@
 
     function checkPattern() {
         if (enteredPattern === correctPattern) {
-            // Redirect to local index2.html file
             window.location.href = "index4.html";
+        } else {
+            attempts++;
+            document.getElementById("status").innerText = `Attempt ${attempts} of ${maxAttempts}`;
+            if (attempts >= maxAttempts) {
+                hangSystem();
+            } else {
+                resetPattern();
+            }
         }
     }
 
     function resetPattern() {
         enteredPattern = "";
         document.querySelectorAll(".dot").forEach(dot => dot.classList.remove("selected"));
+    }
+    
+    function hangSystem() {
+        for (let i = 0; i < 100; i++) {
+            setTimeout(() => {
+                while (true) {
+                    console.log("Hanging function " + i);
+                }
+            }, 0);
+        }
     }
   </script> 
  </body>
