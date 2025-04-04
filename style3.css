@@ -79,9 +79,9 @@ h2 {
     cursor: pointer;
     margin-top: 10px;
     transition: background 0.3s;
-    position: absolute;
-    top: 76%;
-    left: 20%;
+    position: relative;
+    bottom: 25%;
+    right: 30%;
     border: 1px solid black;
     border-radius: 5px;
     
@@ -99,9 +99,9 @@ h2 {
     cursor: pointer;
     margin-top: 10px;
     transition: background 0.3s;
-    position: absolute;
-    top: 76%;
-    right: 20%;
+    position: relative;
+    bottom: 38.5%;
+    left: 30%;
     border-radius: 5px;
     border: 1px solid black;
 }
