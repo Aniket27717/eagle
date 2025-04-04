@@ -1,1 +1,55 @@
-# eagle
+<!doctype html>
+<html lang="en"> 
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Pattern Lock</title> 
+  <link rel="stylesheet" href="style.css"> 
+ </head> 
+ <body> 
+  <h1>∆ᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ</h1> 
+  <div id="pattern-lock-container"> 
+   <h2>Uɴʟᴏᴄᴋ ꜱᴛᴀʀꜱ~ </h2> 
+   <div id="pattern-lock"> 
+    <div class="dot" data-num="1"></div> 
+    <div class="dot" data-num="2"></div> 
+    <div class="dot" data-num="3"></div> 
+    <div class="dot" data-num="4"></div> 
+    <div class="dot" data-num="5"></div> 
+    <div class="dot" data-num="6"></div> 
+    <div class="dot" data-num="7"></div> 
+    <div class="dot" data-num="8"></div> 
+    <div class="dot" data-num="9"></div> 
+   </div> 
+   <p id="status"></p> 
+   <button onclick="resetPattern()">Reset</button> 
+  </div> 
+
+  <script>
+    const correctPattern = "25";
+    let enteredPattern = "";
+
+    document.querySelectorAll(".dot").forEach(dot => {
+        dot.addEventListener("click", function() {
+            if (!this.classList.contains("selected")) {
+                this.classList.add("selected");
+                enteredPattern += this.getAttribute("data-num");
+                checkPattern();
+            }
+        });
+    });
+
+    function checkPattern() {
+        if (enteredPattern === correctPattern) {
+            // Redirect to local index2.html file
+            window.location.href = "index2.html";
+        }
+    }
+
+    function resetPattern() {
+        enteredPattern = "";
+        document.querySelectorAll(".dot").forEach(dot => dot.classList.remove("selected"));
+    }
+  </script> 
+ </body>
+</html>
