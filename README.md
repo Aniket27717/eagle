@@ -1,55 +1,43 @@
 <!doctype html>
-<html lang="en"> 
+<html> 
  <head> 
-  <meta charset="UTF-8"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <title>Pattern Lock</title> 
   <link rel="stylesheet" href="style.css"> 
  </head> 
  <body> 
-  <h1>∆ᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ</h1> 
-  <div id="pattern-lock-container"> 
-   <h2>Uɴʟᴏᴄᴋ ꜱᴛᴀʀꜱ~ </h2> 
-   <div id="pattern-lock"> 
-    <div class="dot" data-num="1"></div> 
-    <div class="dot" data-num="2"></div> 
-    <div class="dot" data-num="3"></div> 
-    <div class="dot" data-num="4"></div> 
-    <div class="dot" data-num="5"></div> 
-    <div class="dot" data-num="6"></div> 
-    <div class="dot" data-num="7"></div> 
-    <div class="dot" data-num="8"></div> 
-    <div class="dot" data-num="9"></div> 
-   </div> 
-   <p id="status"></p> 
-   <button onclick="resetPattern()">Reset</button> 
+  <header> 
+   <nav> 
+    <div class="nav"> 
+     <h2 class="nav-2">Warning ⚠️ </h2> 
+    </div> 
+   </nav> 
+  </header> 
+  <div class="warn"> 
+   <h3>"Accessing <span class="span-1" style="color: white;">restricted</span> protocols.. <br> Are you sure you want to continue?"</h3> 
   </div> 
-
+  <audio id="audio-1" controls> 
+   <source src="https://raw.githubusercontent.com/Aniket27717/-/main/click-47609.mp3" type="audio/mpeg"> Your browser does not support the audio element. 
+  </audio> 
   <script>
-    const correctPattern = "25";
-    let enteredPattern = "";
+      function playAudio() {
+        var audio = document.getElementById('audio-1');
+        audio.play();  
 
-    document.querySelectorAll(".dot").forEach(dot => {
-        dot.addEventListener("click", function() {
-            if (!this.classList.contains("selected")) {
-                this.classList.add("selected");
-                enteredPattern += this.getAttribute("data-num");
-                checkPattern();
-            }
-        });
-    });
-
-    function checkPattern() {
-        if (enteredPattern === correctPattern) {
-            // Redirect to local index2.html file
-            window.location.href = "index2.html";
-        }
-    }
-
-    function resetPattern() {
-        enteredPattern = "";
-        document.querySelectorAll(".dot").forEach(dot => dot.classList.remove("selected"));
-    }
+        // When audio ends, perform an action (e.g., open a file or URL)
+        audio.onended = function() {
+            window.location.href = "index2.html"; // Replace with your desired action
+        };
+      }
   </script> 
+  <div class="circle"> 
+   <div class="circle-1"></div> 
+   <div class="circle-2"></div> 
+   <div class="circle-3"></div> 
+   <div class="circle-4"></div> 
+   <div class="circle-5"></div> 
+   <div class="circle-6"></div> 
+   <div class="circle-7"></div> 
+   <div class="circle-8"> <button class="btn-1" onclick="playAudio()">Click</button> 
+   </div> 
+  </div> 
  </body>
 </html>
