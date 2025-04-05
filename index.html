@@ -2,6 +2,9 @@
 <html> 
  <head> 
   <link rel="stylesheet" href="style.css"> 
+ <style>
+  #audio-2{display: none;}
+ </style>
  </head> 
  <body> 
   <header> 
@@ -17,9 +20,14 @@
   <audio id="audio-1" controls> 
    <source src="click-1.mp3" type="audio/mpeg"> Your browser does not support the audio element. 
   </audio> 
+  <audio id="audio-2" controls>
+  <source src="Horror-Long-Version(chosic.com) (1)" type="audio/mpeg">></audio>
   <script>
       function playAudio() {
         var audio = document.getElementById('audio-1');
+        audio.play();  
+       function playAudio() {
+        var audio = document.getElementById('audio-2');
         audio.play();  
 
         // When audio ends, perform an action (e.g., open a file or URL)
