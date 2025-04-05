@@ -2,9 +2,6 @@
 <html> 
  <head> 
   <link rel="stylesheet" href="style.css"> 
- <style>
-  #audio-2{display: none;}
- </style>
  </head> 
  <body> 
   <header> 
@@ -18,24 +15,18 @@
    <h3>"Accessing <span class="span-1" style="color: white;">restricted</span> protocols.. <br> Are you sure you want to continue?"</h3> 
   </div> 
   <audio id="audio-1" controls> 
-   <source src="click-1.mp3" type="audio/mpeg"> Your browser does not support the audio element. 
+   <source src="https://raw.githubusercontent.com/Aniket27717/-/main/click-47609.mp3" type="audio/mpeg"> Your browser does not support the audio element. 
   </audio> 
-  <audio id="audio-2" controls>
-  <source src="Horror-Long-Version(chosic.com) (1)" type="audio/mpeg">></audio>
   <script>
       function playAudio() {
         var audio = document.getElementById('audio-1');
         audio.play();  
-         
 
         // When audio ends, perform an action (e.g., open a file or URL)
         audio.onended = function() {
             window.location.href = "index2.html"; // Replace with your desired action
         };
       }
-   function playAudio() {
-        var audio = document.getElementById('audio-2');
-        audio.play();
   </script> 
   <div class="circle"> 
    <div class="circle-1"></div> 
